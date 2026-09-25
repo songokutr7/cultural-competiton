@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ساحة التحدي الثقافي | إعدادات الفعالية</title>
+  <link rel="stylesheet" href="./settings.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-glow"></div>
+    <div class="header-content">
+      <div class="brand-lockup" aria-label="العنوان">
+        <div class="brand-text">ساحة التحدي الثقافي</div>
+      </div>
+      <p class="header-badge">إعدادات الفعالية</p>
+      <h1>ساحة التحدي الثقافي</h1>
+      <p class="header-subtitle">اضبط الفرق، المؤقت، والجوائز قبل إطلاق الجولة</p>
+      <div class="summary-pills" id="summaryPills">
+        <span>4 فرق</span>
+        <span>30 ثانية</span>
+        <span>مكافأة +10</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="settings-container">
+    <section class="settings-section">
+      <div class="section-heading">
+        <span class="section-icon">👥</span>
+        <h2>إعدادات الفرق</h2>
+      </div>
+
+      <div class="field-box">
+        <label>عدد الفرق</label>
+        <div class="team-count-picker" id="teamCountPicker">
+          <button type="button" class="count-btn" data-team-count="2">2</button>
+          <button type="button" class="count-btn" data-team-count="3">3</button>
+          <button type="button" class="count-btn active" data-team-count="4">4</button>
+          <button type="button" class="count-btn" data-team-count="5">5</button>
+          <button type="button" class="count-btn" data-team-count="6">6</button>
+        </div>
+      </div>
+
+      <div id="teamsWrapper" class="teams-wrapper"></div>
+    </section>
+
+    <section class="settings-section">
+      <div class="section-heading">
+        <span class="section-icon">⏱️</span>
+        <h2>إعدادات المؤقت</h2>
+      </div>
+
+      <div class="field-box">
+        <label for="timerDuration">مدة المؤقت</label>
+        <div class="select-wrap">
+          <select id="timerDuration" class="styled-dropdown">
+            <option value="15">15 ثانية</option>
+            <option value="30" selected>30 ثانية</option>
+            <option value="45">45 ثانية</option>
+            <option value="60">60 ثانية</option>
+          </select>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="settings-section start-section">
+      <div class="cta-row">
+        <a class="ghost-btn" href="./index.html">العودة للرئيسية</a>
+        <button id="startGameBtn" class="start-btn">ابدأ الجولة</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const redirectKeys = ['ref', 'share', 'invite', 'person', 'user', 'token', 'code', 'link'];
+      const shouldGoHome = redirectKeys.some((key) => params.has(key));
+
+      if (shouldGoHome && !window.location.pathname.endsWith('/index.html')) {
+        window.location.replace('./index.html');
+      }
+    })();
+  </script>
+  <script src="./settings.js" defer></script>
+</body>
+</html>
